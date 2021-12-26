@@ -12,33 +12,42 @@ const state = store.state;
 function activeClass(category) {
   let active = false;
 
-  if (state.categoriesSelected.includes(category.name)) {
+  // If click
+  if (state.collection.categoriesSelected.includes(category.name)) {
     active = true;
   }
-  if (
+  // If child
+  /*if (
     category.parent !== null &&
-    state.categoriesSelected.includes(category.parent)
+    state.collection.categoriesSelected.includes(category.parent)
   ) {
     active = true;
-  }
+  }*/
 
   return active;
 }
 </script>
 <template>
   <li
-    v-for="category in store.getters.categoriesByParent(level)"
+    v-for="category in store.getters['collection/categoriesByParent'](level)"
     class="flex flex-col rounded select-none"
   >
     <div class="flex items-center my-px">
       <button
         class="py-1.5 px-1 hover:bg-zinc-800 rounded transition-fast"
-        v-if="store.getters.categoriesByParent(category.name).length > 0"
-        @click="store.commit('categoryOpenToggle', category)"
+        v-if="
+          store.getters['collection/categoriesByParent'](category.name).length >
+          0
+        "
+        @click="store.commit('layout/categoryOpenToggle', category)"
       >
         <svg
           class="w-4 h-4 fill-current"
-          :class="{ 'rotate-90': state.categoriesOpen.includes(category.name) }"
+          :class="{
+            'rotate-90': state.collection.categoriesOpen.includes(
+              category.name
+            ),
+          }"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           width="24"
@@ -59,17 +68,23 @@ function activeClass(category) {
             category
           ),
         }"
-        @click.ctrl="store.commit('categorySelectToggleMultiple', category)"
-        @click.exact="store.commit('categorySelectToggleSingle', category.name)"
+        @click.ctrl="
+          store.commit('collection/categorySelectToggleMultiple', category)
+        "
+        @click.exact="
+          store.dispatch('collection/categorySelectToggleSingle', category)
+        "
       >
         {{ category.title }}
       </div>
     </div>
     <ul
       class="hidden pl-4"
-      :class="{ '!block': state.categoriesOpen.includes(category.name) }"
+      :class="{
+        '!block': state.collection.categoriesOpen.includes(category.name),
+      }"
     >
-      <PaneCollectionLevel :level="category.name" />
+      <CollectionLevel :level="category.name" />
     </ul>
   </li>
 </template>

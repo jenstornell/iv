@@ -1,5 +1,5 @@
 <script setup>
-import PaneGalleryButton from "./PaneGalleryButton.vue";
+import ButtonGeneral from "../../general/button/ButtonGeneral.vue";
 
 import { useStore } from "vuex";
 
@@ -15,7 +15,11 @@ const state = store.state;
       </div>
     </div>
     <div class="flex gap-2">
-      <PaneGalleryButton>
+      <ButtonGeneral
+        class="hover:bg-zinc-700"
+        :class="{ '!bg-zinc-900': state.details.imageLayout === 'large' }"
+        @click="store.commit('layout/setImageLayout', 'large')"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +32,12 @@ const state = store.state;
             d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"
           />
         </svg>
-      </PaneGalleryButton>
-      <PaneGalleryButton>
+      </ButtonGeneral>
+      <ButtonGeneral
+        class="hover:bg-zinc-700"
+        :class="{ '!bg-zinc-900': state.details.imageLayout === 'medium' }"
+        @click="store.commit('layout/setImageLayout', 'medium')"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +50,12 @@ const state = store.state;
             d="M22 12.999V20a1 1 0 0 1-1 1h-8v-8.001h9zm-11 0V21H3a1 1 0 0 1-1-1v-7.001h9zM11 3v7.999H2V4a1 1 0 0 1 1-1h8zm10 0a1 1 0 0 1 1 1v6.999h-9V3h8z"
           />
         </svg>
-      </PaneGalleryButton>
-      <PaneGalleryButton>
+      </ButtonGeneral>
+      <ButtonGeneral
+        class="hover:bg-zinc-700"
+        :class="{ '!bg-zinc-900': state.details.imageLayout === 'small' }"
+        @click="store.commit('layout/setImageLayout', 'small')"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +68,7 @@ const state = store.state;
             d="M14 10v4h-4v-4h4zm2 0h5v4h-5v-4zm-2 11h-4v-5h4v5zm2 0v-5h5v4a1 1 0 0 1-1 1h-4zM14 3v5h-4V3h4zm2 0h4a1 1 0 0 1 1 1v4h-5V3zm-8 7v4H3v-4h5zm0 11H4a1 1 0 0 1-1-1v-4h5v5zM8 3v5H3V4a1 1 0 0 1 1-1h4z"
           />
         </svg>
-      </PaneGalleryButton>
+      </ButtonGeneral>
     </div>
   </div>
 </template>

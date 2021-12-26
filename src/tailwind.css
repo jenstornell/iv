@@ -11,28 +11,33 @@
   background-position: 0 0, 0 0, -1rem -1rem, 1rem 1rem;
 }
 
-/* width */
 ::-webkit-scrollbar {
   @apply w-3;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   @apply bg-zinc-800;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
   @apply bg-black rounded-full;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-cyan-700;
+  @apply bg-zinc-600;
 }
 
 .transition-fast {
   transition: 0.3s;
+}
+
+.h-small {
+  @apply h-[100px];
+}
+
+.h-medium {
+  @apply h-[200px];
+}
+
+.h-large {
+  @apply h-[300px];
 }
 
 @tailwind utilities;

@@ -5,8 +5,11 @@ const store = useStore();
 const state = store.state;
 </script>
 <template>
-  <div class="flex flex-wrap gap-2" v-if="state.categoriesSelected.length > 0">
-    <template v-for="category in state.categoriesSelected">
+  <div
+    class="flex flex-wrap gap-2"
+    v-if="state.collection.categoriesSelected.length > 0"
+  >
+    <template v-for="category in state.collection.categoriesSelected">
       <button
         class="flex items-center gap-2 px-3 py-1 pr-2 text-white rounded shadow-lg bg-cyan-700"
       >
@@ -25,7 +28,7 @@ const state = store.state;
         {{ category }}
         <div
           class="p-1 hover:bg-cyan-900"
-          @click="store.commit('categoryRemove', category)"
+          @click="store.commit('collection/categoryRemove', category)"
         >
           <svg
             class="w-4 h-4 fill-current"

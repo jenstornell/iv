@@ -13,7 +13,6 @@ export const images = [
   "drink-6865996_960_720.jpg",
   "eagle-6740066_960_720.webp",
   "field-6558125_960_720.jpg",
-  "files.php",
   "france-1930733_960_720.jpg",
   "girl-4589231_960_720.webp",
   "grass-6597188_960_720.jpg",

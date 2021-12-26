@@ -1,17 +1,17 @@
 <script setup>
-import PaneHeader from "./components/panes/header/PaneHeader.vue";
-import PaneCollection from "./components/panes/collection/PaneCollection.vue";
-import PaneGallery from "./components/panes/gallery/PaneGallery.vue";
-import PaneDetails from "./components/panes/details/PaneDetails.vue";
+import HeaderRoot from "./components/panes/header/HeaderRoot.vue";
+import CollectionRoot from "./components/panes/collection/CollectionRoot.vue";
+import GalleryRoot from "./components/panes/gallery/GalleryRoot.vue";
+import DetailsRoot from "./components/panes/details/DetailsRoot.vue";
 </script>
 
 <template>
-  <div class="flex flex-col h-full overflow-hidden">
-    <PaneHeader />
+  <div class="flex flex-col h-full">
+    <HeaderRoot />
     <main class="flex h-full overflow-hidden">
-      <PaneCollection />
-      <PaneGallery />
-      <PaneDetails />
+      <CollectionRoot />
+      <GalleryRoot />
+      <DetailsRoot />
     </main>
   </div>
 </template>
