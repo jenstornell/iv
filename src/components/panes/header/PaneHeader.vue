@@ -7,7 +7,9 @@ import GeneralButton from "../../general/button/GeneralButton.vue";
       <img :src="`./src/assets/logo-inverted.png`" />
     </figure>
     <div class="flex items-center flex-1 ml-8">
-      <label class="flex gap-2 p-2 bg-zinc-800 text-zinc-400">
+      <label
+        class="flex gap-2 p-2 rounded shadow-lg bg-zinc-800 text-zinc-300 focus-within:ring-2 ring-cyan-600"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"

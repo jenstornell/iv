@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
+
+.chess {
+  background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(45deg, #000 25%, transparent 25%);
+  background-size: 2rem 2rem;
+
+  background-position: 0 0, 0 0, -1rem -1rem, 1rem 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-zinc-800;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-black rounded-full;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyan-700;
+}
+
+.transition-fast {
+  transition: 0.3s;
+}
+
 @tailwind utilities;
