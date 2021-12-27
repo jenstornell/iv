@@ -8,24 +8,6 @@ const props = defineProps({
 
 const store = useStore();
 const state = store.state;
-
-function activeClass(category) {
-  let active = false;
-
-  // If click
-  if (state.collection.categoriesSelected.includes(category.name)) {
-    active = true;
-  }
-  // If child
-  /*if (
-    category.parent !== null &&
-    state.collection.categoriesSelected.includes(category.parent)
-  ) {
-    active = true;
-  }*/
-
-  return active;
-}
 </script>
 <template>
   <li
@@ -42,11 +24,9 @@ function activeClass(category) {
         @click="store.commit('layout/categoryOpenToggle', category)"
       >
         <svg
-          class="w-4 h-4 fill-current"
+          class="w-4 h-4 fill-current transition-fast"
           :class="{
-            'rotate-90': state.collection.categoriesOpen.includes(
-              category.name
-            ),
+            'rotate-90': state.layout.categoriesOpen.includes(category.name),
           }"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -64,9 +44,8 @@ function activeClass(category) {
       <div
         class="w-full pl-2 rounded hover:bg-zinc-800 py-0.5 transition-fast"
         :class="{
-          '!bg-cyan-700 hover:!bg-cyan-800 text-white rounded': activeClass(
-            category
-          ),
+          '!bg-cyan-700 hover:!bg-cyan-800 text-white rounded':
+            state.collection.categoriesSelected.includes(category.name),
         }"
         @click.ctrl="
           store.commit('collection/categorySelectToggleMultiple', category)
@@ -81,7 +60,7 @@ function activeClass(category) {
     <ul
       class="hidden pl-4"
       :class="{
-        '!block': state.collection.categoriesOpen.includes(category.name),
+        '!block': state.layout.categoriesOpen.includes(category.name),
       }"
     >
       <CollectionLevel :level="category.name" />

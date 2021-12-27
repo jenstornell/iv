@@ -1,5 +1,5 @@
 import { images } from "../helpers/images.js";
-import deleteArrayItemByValue from "../helpers/DeleteArrayItemByValue";
+import deleteArrayItemByValue from "../helpers/deleteArrayItemByValue";
 
 export default {
   namespaced: true,
@@ -14,6 +14,8 @@ export default {
       state.imagesSelected.forEach((item) => {
         deleteArrayItemByValue(state.images, item);
       });
+
+      state.imagesSelected = [];
     },
     imageSelectToggleSingle(state, name) {
       if (state.imagesSelected.includes(name)) {

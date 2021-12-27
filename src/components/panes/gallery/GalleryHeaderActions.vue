@@ -17,7 +17,7 @@ const state = store.state;
     <div class="flex gap-2">
       <ButtonGeneral
         class="hover:bg-zinc-700"
-        :class="{ '!bg-zinc-900': state.details.imageLayout === 'large' }"
+        :class="{ '!bg-zinc-900': state.layout.imageLayout === 'large' }"
         @click="store.commit('layout/setImageLayout', 'large')"
       >
         <svg
@@ -35,7 +35,7 @@ const state = store.state;
       </ButtonGeneral>
       <ButtonGeneral
         class="hover:bg-zinc-700"
-        :class="{ '!bg-zinc-900': state.details.imageLayout === 'medium' }"
+        :class="{ '!bg-zinc-900': state.layout.imageLayout === 'medium' }"
         @click="store.commit('layout/setImageLayout', 'medium')"
       >
         <svg
@@ -53,7 +53,7 @@ const state = store.state;
       </ButtonGeneral>
       <ButtonGeneral
         class="hover:bg-zinc-700"
-        :class="{ '!bg-zinc-900': state.details.imageLayout === 'small' }"
+        :class="{ '!bg-zinc-900': state.layout.imageLayout === 'small' }"
         @click="store.commit('layout/setImageLayout', 'small')"
       >
         <svg

@@ -15,15 +15,15 @@ const state = store.state;
       <GalleryHeaderTags />
     </div>
     <div class="flex-1 overflow-y-auto">
-      <div class="flex flex-wrap gap-3 px-8 pt-2">
+      <div class="flex flex-wrap gap-3 px-8 py-2">
         <template v-for="image in state.details.images">
           <div
             class="flex-[1_0_auto] flex"
-            :class="`h-${state.details.imageLayout}`"
+            :class="`h-${state.layout.imageLayout}`"
           >
             <img
               :src="`./../src/assets/images/${image}`"
-              class="object-cover w-full shadow-lg ring-4 ring-transparent hover:ring-zinc-500 ring-offset-4 ring-offset-zinc-800 transition-fast"
+              class="object-cover w-full max-h-full shadow-lg  ring-4 ring-transparent hover:ring-zinc-500 ring-offset-4 ring-offset-zinc-800 transition-fast"
               :class="{
                 '!ring-cyan-500': state.details.imagesSelected.includes(image),
               }"

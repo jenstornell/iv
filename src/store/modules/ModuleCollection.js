@@ -1,19 +1,7 @@
 import { categories } from "../helpers/categories.js";
-import deleteArrayItemByValue from "../helpers/DeleteArrayItemByValue";
 
-function toggle(collection, value) {
-  if (collection.includes(value)) {
-    deleteArrayItemByValue(collection, value);
-  } else {
-    collection.push(value);
-  }
-}
-
-function append(collection, value) {
-  if (!collection.includes(value)) {
-    collection.push(value);
-  }
-}
+import deleteArrayItemByValue from "../helpers/deleteArrayItemByValue";
+import toggleArrayItemByValue from "../helpers/toggleArrayItemByValue";
 
 export default {
   namespaced: true,
@@ -43,7 +31,7 @@ export default {
       });
     },
     categorySelectToggleMultiple(state, category) {
-      toggle(state.categoriesSelected, category.name);
+      toggleArrayItemByValue(state.categoriesSelected, category.name);
 
       // If parent has children - Remove parent
       if (category.parent !== null) {
@@ -52,7 +40,7 @@ export default {
         );
 
         deleteArrayItemByValue(state.categoriesSelected, parent.name);
-        // If is child - Toggle children
+        // If child - Toggle children
       } else {
         const children = state.categories.filter(
           (item) => item.parent === category.name
@@ -60,7 +48,9 @@ export default {
 
         children.forEach((item) => {
           if (state.categoriesSelected.includes(category.name)) {
-            append(state.categoriesSelected, item.name);
+            if (!state.categoriesSelected.includes(item.name)) {
+              state.categoriesSelected.push(item.name);
+            }
           } else {
             deleteArrayItemByValue(state.categoriesSelected, item.name);
           }
@@ -74,9 +64,7 @@ export default {
     },
     categoryIsActive: (state) => {
       state.categories.forEach((category) => {
-        if (state.categoriesSelected.includes(category.name)) {
-          return true;
-        }
+        return state.categoriesSelected.includes(category.name);
       });
     },
   },

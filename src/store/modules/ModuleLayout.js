@@ -1,3 +1,5 @@
+import toggleArrayItemByValue from "../helpers/toggleArrayItemByValue";
+
 export default {
   namespaced: true,
   state() {
@@ -16,7 +18,7 @@ export default {
       state.detailsTabSelected = tab;
     },
     categoryOpenToggle(state, category) {
-      toggle(state.categoriesOpen, category.name);
+      toggleArrayItemByValue(state.categoriesOpen, category.name);
     },
     setCollectionTabSelected(state, tab) {
       state.collectionTabSelected = tab;

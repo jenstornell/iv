@@ -13,14 +13,14 @@ const state = store.state;
   <div class="w-[300px] bg-zinc-900 flex flex-col">
     <TabItems
       :tabs="['Kategorier', 'Bibliotek', 'Avtal']"
-      :active="state.collection.collectionTabSelected"
+      :active="state.layout.collectionTabSelected"
       class="pl-2"
       @click-tab="store.commit('layout/setCollectionTabSelected', $event)"
     />
     <div class="flex-1 overflow-auto">
       <section
         class="px-4 py-4 pl-2"
-        v-if="state.collection.collectionTabSelected == 'Kategorier'"
+        v-if="state.layout.collectionTabSelected == 'Kategorier'"
       >
         <ul class="text-zinc-200">
           <CollectionLevel :level="null" />

@@ -54,7 +54,7 @@ const data = [
   <div class="flex flex-col h-full">
     <div class="flex-1">
       <div class="bg-zinc-900">
-        <figure class="relative p-2 chess">
+        <figure class="relative flex p-2 chess aspect-square">
           <img
             :src="`./../src/assets/images/${
               state.details.imagesSelected[
@@ -67,7 +67,14 @@ const data = [
       </div>
       <div class="flex-1">
         <div
-          class="flex-1 px-8 py-4 text-sm grid grid-cols-[repeat(2,minmax(auto,1fr))] gap-x-2 gap-y-2"
+          class="
+            flex-1
+            px-8
+            py-4
+            text-sm
+            grid grid-cols-[repeat(2,minmax(auto,1fr))]
+            gap-x-2 gap-y-2
+          "
         >
           <template v-for="item in data">
             <div class="font-bold text-left text-zinc-500">

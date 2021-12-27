@@ -11,7 +11,7 @@ const state = store.state;
   >
     <template v-for="category in state.collection.categoriesSelected">
       <button
-        class="flex items-center gap-2 px-3 py-1 pr-2 text-white rounded shadow-lg bg-cyan-700"
+        class="flex items-center gap-2 px-3 py-1 pr-2 text-white rounded shadow-lg  bg-cyan-700"
       >
         <svg
           class="w-4 h-4 fill-current"
@@ -27,7 +27,7 @@ const state = store.state;
         </svg>
         {{ category }}
         <div
-          class="p-1 hover:bg-cyan-900"
+          class="p-1 rounded hover:bg-cyan-900"
           @click="store.commit('collection/categoryRemove', category)"
         >
           <svg

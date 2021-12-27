@@ -12,11 +12,11 @@ const state = store.state;
   <div class="bg-zinc-900 w-[300px] text-zinc-300 h-full flex flex-col">
     <TabItems
       :tabs="['Information', 'Metadata']"
-      :active="state.details.detailsTabSelected"
+      :active="state.layout.detailsTabSelected"
       @click-tab="store.commit('layout/setDetailsTabSelected', $event)"
     />
     <div class="flex flex-col flex-1 overflow-auto">
-      <template v-if="state.details.detailsTabSelected == 'Information'">
+      <template v-if="state.layout.detailsTabSelected == 'Information'">
         <section
           class="flex-1"
           v-if="state.details.imagesSelected.length === 1"

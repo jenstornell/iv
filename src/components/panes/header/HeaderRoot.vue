@@ -4,11 +4,11 @@ import ButtonGeneral from "../../general/button/ButtonGeneral.vue";
 <template>
   <div class="flex bg-zinc-900">
     <figure class="w-[300px] px-8 py-4">
-      <img :src="`./src/assets/logo-inverted.png`" />
+      <img :src="`./../src/assets/logo-inverted.png`" />
     </figure>
     <div class="flex items-center flex-1 ml-8">
       <label
-        class="flex gap-2 p-2 rounded shadow-lg bg-zinc-800 text-zinc-300 focus-within:ring-2 ring-cyan-600"
+        class="flex gap-2 p-2 rounded shadow-lg  bg-zinc-800 text-zinc-300 focus-within:ring-2 ring-cyan-600"
       >
         <svg
           class="fill-current"
