@@ -9,7 +9,7 @@ const store = useStore();
 const state = store.state;
 </script>
 <template>
-  <div class="flex flex-col flex-1 h-full bg-zinc-800">
+  <div class="flex flex-col flex-1 h-full dark:bg-zinc-800 bg-zinc-200">
     <div class="flex flex-col gap-2 px-8 py-2">
       <GalleryHeaderActions />
       <GalleryHeaderTags />
@@ -23,7 +23,7 @@ const state = store.state;
           >
             <img
               :src="`./../src/assets/images/${image}`"
-              class="object-cover w-full max-h-full shadow-lg  ring-4 ring-transparent hover:ring-zinc-500 ring-offset-4 ring-offset-zinc-800 transition-fast"
+              class="object-cover w-full max-h-full shadow-lg ring-4 ring-transparent hover:ring-zinc-400 ring-offset-zinc-200 dark:hover:ring-zinc-500 ring-offset-4 dark:ring-offset-zinc-800 transition-fast"
               :class="{
                 '!ring-cyan-500': state.details.imagesSelected.includes(image),
               }"

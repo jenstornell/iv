@@ -9,7 +9,10 @@ const state = store.state;
 <template>
   <div class="flex items-center justify-between">
     <div class="flex gap-2 py-2 text-15">
-      <ButtonGeneral class="hover:bg-zinc-700" label="Publicera">
+      <ButtonGeneral
+        class="dark:hover:bg-zinc-700 hover:bg-zinc-300"
+        label="Publicera"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +24,10 @@ const state = store.state;
           <path d="M3 19h18v2H3v-2zm10-9v8h-2v-8H4l8-8 8 8h-7z" />
         </svg>
       </ButtonGeneral>
-      <ButtonGeneral class="hover:bg-zinc-700" label="Ladda ner">
+      <ButtonGeneral
+        class="dark:hover:bg-zinc-700 hover:bg-zinc-300"
+        label="Ladda ner"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +39,10 @@ const state = store.state;
           <path d="M3 19h18v2H3v-2zM13 9h7l-8 8-8-8h7V1h2v8z" />
         </svg>
       </ButtonGeneral>
-      <ButtonGeneral class="hover:bg-zinc-700" label="Flytta">
+      <ButtonGeneral
+        class="dark:hover:bg-zinc-700 hover:bg-zinc-300"
+        label="Flytta"
+      >
         <svg
           class="w-6 h-6 fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +54,10 @@ const state = store.state;
           <path d="M12 13H4v-2h8V4l8 8-8 8z" />
         </svg>
       </ButtonGeneral>
-      <ButtonGeneral class="hover:bg-zinc-700" label="Dela">
+      <ButtonGeneral
+        class="dark:hover:bg-zinc-700 hover:bg-zinc-300"
+        label="Dela"
+      >
         <svg
           class="w-6 h-6 fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +71,10 @@ const state = store.state;
           />
         </svg>
       </ButtonGeneral>
-      <ButtonGeneral class="hover:bg-zinc-700" label="Mer">
+      <ButtonGeneral
+        class="dark:hover:bg-zinc-700 hover:bg-zinc-300"
+        label="Mer"
+      >
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +89,7 @@ const state = store.state;
         </svg>
       </ButtonGeneral>
     </div>
-    <div class="text-zinc-300 text-15">
+    <div class="text-15">
       <div>
         {{ state.details.imagesSelected.length }} av
         {{ state.details.images.length }} fil<span

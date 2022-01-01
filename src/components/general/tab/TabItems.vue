@@ -10,10 +10,16 @@ function clickTab(tab) {
 }
 </script>
 <template>
-  <div class="flex pt-2 select-none text-15 border-zinc-800 bg-zinc-800">
+  <div
+    class="flex pt-2 select-none text-15 dark:border-zinc-800 dark:bg-zinc-800 bg-zinc-200"
+  >
     <div
-      class="px-3 py-1.5 rounded-t text-zinc-300 hover:bg-zinc-700 transition-fast"
-      :class="{ '!bg-zinc-900 !hover:bg-zinc-900': active == tab }"
+      class="px-3 py-1.5 rounded-t transition-fast dark:text-zinc-300"
+      :class="{
+        'dark:bg-zinc-900 dark:hover:bg-zinc-900 bg-white hover:bg-white':
+          active === tab,
+        'dark:hover:bg-zinc-700 hover:bg-zinc-300': active !== tab,
+      }"
       v-for="tab in tabs"
       @click="clickTab(tab)"
     >

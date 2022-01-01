@@ -1,7 +1,9 @@
 <template>
-  <div class="flex items-center text-zinc-300">
+  <div class="flex items-center">
     <div class="w-[300px] flex p-2">
-      <button class="p-2 rounded hover:bg-zinc-800">
+      <button
+        class="p-2 rounded dark:hover:bg-zinc-800 hover:bg-zinc-200 dark:text-zinc-300 text-zinc-800"
+      >
         <svg
           class="w-5 h-5 fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +15,9 @@
           <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" />
         </svg>
       </button>
-      <button class="p-2 rounded hover:bg-zinc-800">
+      <button
+        class="p-2 rounded dark:hover:bg-zinc-800 hover:bg-zinc-200 dark:text-zinc-300 text-zinc-800"
+      >
         <svg
           class="w-4 h-4 fill-current"
           xmlns="http://www.w3.org/2000/svg"

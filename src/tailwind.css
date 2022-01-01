@@ -1,27 +1,24 @@
 @tailwind base;
 @tailwind components;
 
-.chess {
-  background-image: linear-gradient(45deg, #000 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #000 75%),
-    linear-gradient(45deg, transparent 75%, #000 75%),
-    linear-gradient(45deg, #000 25%, transparent 25%);
-  background-size: 2rem 2rem;
-
-  background-position: 0 0, 0 0, -1rem -1rem, 1rem 1rem;
+.chess:before {
+  content: "";
+  @apply inset-0 absolute opacity-5;
+  background: url("/src/assets/chess.svg");
+  background-size: 24px;
 }
 
 ::-webkit-scrollbar {
   @apply w-3;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-zinc-800;
+  @apply dark:bg-zinc-800 bg-gray-100;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-black rounded-full;
+  @apply dark:bg-black rounded-full bg-gray-300;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-zinc-600;
+  @apply dark:bg-zinc-600 bg-gray-400;
 }
 
 .transition-fast {

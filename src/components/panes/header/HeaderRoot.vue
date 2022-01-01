@@ -1,14 +1,23 @@
 <script setup>
+import { useStore } from "vuex";
+
 import ButtonGeneral from "../../general/button/ButtonGeneral.vue";
+
+const store = useStore();
+const state = store.state;
 </script>
 <template>
-  <div class="flex bg-zinc-900">
+  <div class="flex dark:bg-zinc-900 bg-zinc-100">
     <figure class="w-[300px] px-8 py-4">
-      <img :src="`./../src/assets/logo-inverted.png`" />
+      <img
+        :src="`./../src/assets/logo-inverted.png`"
+        v-if="state.layout.mode === 'dark'"
+      />
+      <img :src="`./../src/assets/logo.png`" v-else />
     </figure>
     <div class="flex items-center flex-1 ml-8">
       <label
-        class="flex gap-2 p-2 rounded shadow-lg  bg-zinc-800 text-zinc-300 focus-within:ring-2 ring-cyan-600"
+        class="flex gap-2 p-2 bg-white rounded shadow dark:bg-zinc-800 dark:text-zinc-300 focus-within:ring-2 ring-cyan-600"
       >
         <svg
           class="fill-current"
@@ -29,9 +38,12 @@ import ButtonGeneral from "../../general/button/ButtonGeneral.vue";
         />
       </label>
     </div>
-    <div class="flex items-center mx-4 text-zinc-400 text-15">
+    <div class="flex items-center mx-4 dark:text-zinc-400 text-15">
       <div class="flex gap-2 ml-auto">
-        <ButtonGeneral class="hover:bg-zinc-800" label="Importera">
+        <ButtonGeneral
+          class="dark:hover:bg-zinc-800 hover:bg-zinc-200"
+          label="Importera"
+        >
           <svg
             class="fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +57,48 @@ import ButtonGeneral from "../../general/button/ButtonGeneral.vue";
             />
           </svg>
         </ButtonGeneral>
-        <ButtonGeneral class="hover:bg-zinc-800" label="Inställningar">
+        <ButtonGeneral
+          class="dark:hover:bg-zinc-800 hover:bg-zinc-200"
+          label="Mörkt läge"
+          v-if="state.layout.mode === 'light'"
+          @click="store.commit('layout/setMode', 'dark')"
+        >
+          <svg
+            class="fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z"
+            />
+          </svg>
+        </ButtonGeneral>
+        <ButtonGeneral
+          class="dark:hover:bg-zinc-800 hover:bg-zinc-200"
+          label="Ljust läge"
+          v-if="state.layout.mode === 'dark'"
+          @click="store.commit('layout/setMode', 'light')"
+        >
+          <svg
+            class="fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"
+            />
+          </svg>
+        </ButtonGeneral>
+        <ButtonGeneral
+          class="dark:hover:bg-zinc-800 hover:bg-zinc-200"
+          label="Inställningar"
+        >
           <svg
             class="fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +112,10 @@ import ButtonGeneral from "../../general/button/ButtonGeneral.vue";
             />
           </svg>
         </ButtonGeneral>
-        <ButtonGeneral class="hover:bg-zinc-800" label="Logga ut">
+        <ButtonGeneral
+          class="dark:hover:bg-zinc-800 hover:bg-zinc-200"
+          label="Logga ut"
+        >
           <svg
             class="fill-current"
             xmlns="http://www.w3.org/2000/svg"

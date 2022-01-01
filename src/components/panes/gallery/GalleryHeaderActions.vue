@@ -10,14 +10,17 @@ const state = store.state;
   <div class="flex justify-between gap-8 text-15">
     <div class="flex items-center">
       <div class="flex gap-2">
-        <span class="text-zinc-400">Sortering:</span>
-        <span class="text-zinc-100">Inlagd, fallande</span>
+        <span class="dark:text-zinc-400 text-zinc-600">Sortering:</span>
+        <span class="text-black dark:text-zinc-100">Inlagd, fallande</span>
       </div>
     </div>
     <div class="flex gap-2">
       <ButtonGeneral
-        class="hover:bg-zinc-700"
-        :class="{ '!bg-zinc-900': state.layout.imageLayout === 'large' }"
+        :class="{
+          'dark:bg-zinc-900 bg-white': state.layout.imageLayout === 'large',
+          'dark:hover:bg-zinc-700 hover:bg-zinc-300':
+            state.layout.imageLayout !== 'large',
+        }"
         @click="store.commit('layout/setImageLayout', 'large')"
       >
         <svg
@@ -34,8 +37,11 @@ const state = store.state;
         </svg>
       </ButtonGeneral>
       <ButtonGeneral
-        class="hover:bg-zinc-700"
-        :class="{ '!bg-zinc-900': state.layout.imageLayout === 'medium' }"
+        :class="{
+          'dark:bg-zinc-900 bg-white': state.layout.imageLayout === 'medium',
+          'dark:hover:bg-zinc-700 hover:bg-zinc-300':
+            state.layout.imageLayout !== 'medium',
+        }"
         @click="store.commit('layout/setImageLayout', 'medium')"
       >
         <svg
@@ -52,8 +58,11 @@ const state = store.state;
         </svg>
       </ButtonGeneral>
       <ButtonGeneral
-        class="hover:bg-zinc-700"
-        :class="{ '!bg-zinc-900': state.layout.imageLayout === 'small' }"
+        :class="{
+          'dark:bg-zinc-900 bg-white': state.layout.imageLayout === 'small',
+          'dark:hover:bg-zinc-700 hover:bg-zinc-300':
+            state.layout.imageLayout !== 'small',
+        }"
         @click="store.commit('layout/setImageLayout', 'small')"
       >
         <svg

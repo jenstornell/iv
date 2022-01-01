@@ -16,7 +16,7 @@ const state = store.state;
   >
     <div class="flex items-center my-px">
       <button
-        class="py-1.5 px-1 hover:bg-zinc-800 rounded transition-fast"
+        class="py-1.5 px-1 dark:hover:bg-zinc-800 hover:bg-zinc-200 rounded transition-fast"
         v-if="
           store.getters['collection/categoriesByParent'](category.name).length >
           0
@@ -42,10 +42,11 @@ const state = store.state;
 
       <div v-else class="ml-6"></div>
       <div
-        class="w-full pl-2 rounded hover:bg-zinc-800 py-0.5 transition-fast"
+        class="w-full pl-2 rounded dark:hover:bg-zinc-800 hover:bg-zinc-200 py-0.5 transition-fast"
         :class="{
-          '!bg-cyan-700 hover:!bg-cyan-800 text-white rounded':
-            state.collection.categoriesSelected.includes(category.name),
+          '!bg-cyan-700 hover:!bg-cyan-800 text-white rounded': state.collection.categoriesSelected.includes(
+            category.name
+          ),
         }"
         @click.ctrl="
           store.commit('collection/categorySelectToggleMultiple', category)

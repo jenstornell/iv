@@ -12,7 +12,7 @@ const state = store.state;
       <div class="flex flex-col gap-1 p-4">
         <div
           v-for="image in state.details.imagesSelected"
-          class="flex items-center flex-1 gap-2 overflow-hidden rounded shadow-lg bg-zinc-700"
+          class="flex items-center flex-1 gap-2 overflow-hidden rounded dark:shadow-lg dark:bg-zinc-800 bg-zinc-100"
         >
           <figure>
             <img

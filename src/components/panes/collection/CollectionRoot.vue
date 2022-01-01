@@ -10,7 +10,7 @@ const store = useStore();
 const state = store.state;
 </script>
 <template>
-  <div class="w-[300px] bg-zinc-900 flex flex-col">
+  <div class="w-[300px] dark:bg-zinc-900 bg-white flex flex-col">
     <TabItems
       :tabs="['Kategorier', 'Bibliotek', 'Avtal']"
       :active="state.layout.collectionTabSelected"
@@ -22,7 +22,7 @@ const state = store.state;
         class="px-4 py-4 pl-2"
         v-if="state.layout.collectionTabSelected == 'Kategorier'"
       >
-        <ul class="text-zinc-200">
+        <ul class="dark:text-zinc-200">
           <CollectionLevel :level="null" />
         </ul>
       </section>
